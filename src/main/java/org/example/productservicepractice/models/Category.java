@@ -17,7 +17,3 @@ public class Category {
         this.id = Math.abs(new Random().nextLong());
     }
 }
-//git remote set-url origin https://atish23@github.com/atish23/productsServiceJava.git
-//https://github.com/atish23/productsServiceJava.git
-
-//git@github.com-personal:personal-atish23/productsServiceJava.git
