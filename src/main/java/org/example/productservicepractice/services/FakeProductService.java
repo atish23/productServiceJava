@@ -12,14 +12,15 @@ import java.util.List;
 
 @Service
 public class FakeProductService implements ProductService{
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
     FakeProductService( RestTemplate restTemplate){
         this.restTemplate = restTemplate;
     }
 
     @Override
     public Product getProductById(Long id) {
-        FakeStoreProductDto fakeStoreProductDto =  restTemplate.getForObject("https://fakestoreapi.com/products/{id}", FakeStoreProductDto.class, id);
+        FakeStoreProductDto fakeStoreProductDto =
+                restTemplate.getForObject("https://fakestoreapi.com/products/{id}", FakeStoreProductDto.class, id);
         assert fakeStoreProductDto != null;
         return convertDtoToProduct(fakeStoreProductDto);
     }
